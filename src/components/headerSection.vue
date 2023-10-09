@@ -147,7 +147,6 @@ export default {
     border:1px solid red;
     margin-left:auto;
     margin-right:auto;
-    position:relative;
 }
  @media(max-width:768px){
    #main{
