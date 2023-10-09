@@ -12,11 +12,10 @@
         </div>
         <div class="profile-section">
             <ul>
-                <li><img src="@/assets/images/icon-cart.svg" alt="cart-icon" id="cart-icn" v-on:click="cartdetails =true" >
-                <div v-if="dropDownOpen" class="dropdown">
-                
-                </div>
-                <span class="badge" v-if="cartQuantity > 0">{{cartQuantity}}</span></li>
+                <filled-cart v-if="showFilledAlert" :priceProp = "price" :cartQuantityProp = "cartQuantity"></filled-cart>
+                 <empty-cart v-if="showEmptyAlert"></empty-cart>
+                <li><img src="@/assets/images/icon-cart.svg" alt="cart-icon" id="cart-icn" v-on:click="cartdetails" >
+                <span class="badge" v-if="cartQuantity > 0">{{cartQuantity}}</span> </li>
                 <li><img src="@/assets/images/image-avatar.png" alt="profile-pic" id="profile-pic"></li>
             </ul>
         </div>
@@ -36,7 +35,7 @@
         <h1>{{title}}</h1>
         <h2>{{content}}</h2>
         <p>{{contents}}</p>
-        <h3>$125.00     <span>50%</span> </h3>
+        <h3>${{price}}.00    <span>50%</span> </h3>
         <p id="normal-price">$250.00</p>  
         <div>
             <div class="cart-section"> 
@@ -52,17 +51,20 @@
     </div>
     </div>
    </section>
-   <div v-if="cartdetails" class="alert"></div>
   </div>
 </template>
 
 <script>
 import sideBar from '@/components/sideBar.vue';
 import iconSection from '@/components/iconSection.vue';
+import alertFilledCart from '@/components/alertFilledCart.vue';
+import alertEmptyCart from '@/components/alertEmptyCart.vue';
 export default {
   components: {
       'sidebar':sideBar,
       'icon-component':iconSection,
+      'filled-cart':alertFilledCart,
+      'empty-cart':alertEmptyCart,
   },
   data(){
   return{
@@ -78,10 +80,13 @@ export default {
          title:'SNEAKERS COMPANY',
          content:'Fall Limited Edition Sneakers',
          contents:'These low-profile sneakers are your perfect casual wear companion.Featuring a durable rubber outer sole,theyll withstand everything the weather can offer.',
+         price:125.00,
          quantity:0,
          cartQuantity:0,
          showIcon:false,
-         showSidebar:false
+         showSidebar:false,
+         showFilledAlert:false,
+         showEmptyAlert:false,
          }
          },
   methods:{
@@ -113,7 +118,15 @@ export default {
        },
        closeSidebar(){
        this.showSidebar =false;
-       }
+       },
+       cartdetails:function(){
+        if(this.cartQuantity > 0){
+         this.showFilledAlert =! this.showFilledAlert;
+         }
+         else{
+         this.showEmptyAlert =! this.showEmptyAlert;
+         }
+         }
   },
   mounted(){
    if(window.innerWidth <= 768){
@@ -134,6 +147,7 @@ export default {
     border:1px solid red;
     margin-left:auto;
     margin-right:auto;
+    position:relative;
 }
  @media(max-width:768px){
    #main{

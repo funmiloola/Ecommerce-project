@@ -18,7 +18,6 @@ export default {
 },
   data() {
     return {
-      isOpen: false, 
       options:[
               {id:1, name:'Collections'},
               {id:2,name:'Men'},
