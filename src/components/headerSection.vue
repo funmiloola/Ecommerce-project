@@ -45,7 +45,7 @@
             <img src="@/assets/images/icon-plus.svg" alt="" v-on:click="add(1)" id="icon-plus">
         </div>
         <div class="cart">
-            <button><img src="@/assets/images/icon-cart.svg" alt="cart-icon" id="cart-icon" v-on:click="addToCart"> Add to cart</button>
+            <button v-on:click="addToCart"><img src="@/assets/images/icon-cart.svg" alt="cart-icon" id="cart-icon" > Add to cart</button>
         </div>
     </div>
     </div>
@@ -190,6 +190,7 @@ li {
     margin-right: 16px;
     margin-bottom: 0;
     list-style-type: none;
+    cursor:pointer;
 }
 #profile-pic{
     width:50px;
