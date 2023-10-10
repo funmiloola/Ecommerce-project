@@ -34,14 +34,12 @@ export default {
 .sidebar-options{
    width:85%;
    height:1175px;
-   border:1px solid red;
    margin:0;
    display:none;
    position:absolute;
    left:0;
    top:0;
    background:#fff;
-   box-shadow:blue;
    }
 img{
    padding-top:16px;

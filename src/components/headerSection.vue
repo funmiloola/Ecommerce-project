@@ -1,24 +1,20 @@
 <template>
   <div id="main">
     <header>
-    <nav class="nav-section">
-        <div class="collections">
-            <ul>
+    <nav>
+            <ul class="nav-section">
                 <sidebar :showSidebar = "showSidebar" :closeSidebar = "closeSidebar"></sidebar>
                 <icon-component :showIcon="showIcon" :displaySidebar="displaySidebar"></icon-component>
                 <li><img src="@/assets/images/logo.svg" alt="logo" id="logo"></li>
                 <li class="options" v-for="option in options" v-bind:key="option.id">{{option.name}}</li>
             </ul>
-        </div>
-        <div class="profile-section">
-            <ul>
-                <filled-cart v-if="showFilledAlert" :priceProp = "price" :cartQuantityProp = "cartQuantity"></filled-cart>
+            <ul class="nav-section">
+                <filled-cart v-if="showFilledAlert" :priceProp = "price" :cartQuantityProp = "cartQuantity" :deleteCart = "deleteCart"></filled-cart>
                  <empty-cart v-if="showEmptyAlert"></empty-cart>
                 <li><img src="@/assets/images/icon-cart.svg" alt="cart-icon" id="cart-icn" v-on:click="cartdetails" >
                 <span class="badge" v-if="cartQuantity > 0">{{cartQuantity}}</span> </li>
-                <li><img src="@/assets/images/image-avatar.png" alt="profile-pic" id="profile-pic"></li>
+                <li><img src="@/assets/images/image-avatar.png" alt="profile-pic" id="profile-pic" class="profile-pic"></li>
             </ul>
-        </div>
     </nav>
    </header>
      <section class="orders">
@@ -112,6 +108,7 @@ export default {
       },
       addToCart:function(){
       this.cartQuantity += this.quantity;
+      this.quantity = 0;
       },
       displaySidebar:function(){
        this.showSidebar =! this.showSidebar;
@@ -126,7 +123,12 @@ export default {
          else{
          this.showEmptyAlert =! this.showEmptyAlert;
          }
-         }
+         },
+         deleteCart:function(){
+          this.showFilledAlert = false;
+          this.showEmptyAlert =! this.showEmptyAlert;
+          this.cartQuantity = 0;
+          }
   },
   mounted(){
    if(window.innerWidth <= 768){
@@ -137,16 +139,12 @@ export default {
 </script>
 
 <style scoped>
- @media(max-width:768px){
-   *{
-   margin:0;
-   }
-   }
  #main{
     width:1100px;
     border:1px solid red;
     margin-left:auto;
     margin-right:auto;
+    font-family:'Kumbh Sans';
 }
  @media(max-width:768px){
    #main{
@@ -155,7 +153,7 @@ export default {
      border:none;
      }
      }
-.nav-section{
+nav{
     display:flex;
     justify-content: space-between;
     margin-left:100px;
@@ -163,7 +161,7 @@ export default {
     border-bottom: 1px solid grey;
 }
  @media(max-width:768px){
-  .nav-section{
+  nav{
      border-bottom:none;
      margin-left:36px;
      margin-right:-120px;
@@ -181,17 +179,27 @@ export default {
       display:none;
       }
       }
-ul{
+.nav-section{
     display:flex;
     justify-content:center;
     padding:10px 0;
 }
-li {
+.nav-section:first-child li:hover{
+   border-bottom:2px solid orange;
+   color:black;
+   }
+.nav-section li {
     margin-right: 16px;
     margin-bottom: 0;
     list-style-type: none;
     cursor:pointer;
+    color:hsl(219, 9%, 45%);
+    
 }
+.profile-pic:hover{
+   border-radius:50%;
+   border:2px solid orange;
+   }
 #profile-pic{
     width:50px;
     margin-top:-19px;
@@ -268,7 +276,11 @@ li {
        }
 .img-product{
     width:80px;
+    border-radius:6px;
 }
+.img-product:hover{
+   opacity:0.7;
+    }
 @media(max-width:768px){
    .img-product{
      display:none;
@@ -299,6 +311,7 @@ li {
       }
 h1{
     font-size:16px;
+    color:hsl(26, 100%, 55%);
 }
 @media(max-width:768px){
    h1{
@@ -315,12 +328,17 @@ h2{
       font-size:42px;
       }
       }
+      p{
+       color:hsl(219, 9%, 45%);
+       }
 @media(max-width:768px){
   p{
      padding-top:10px;
-     font-size:20px;
+     font-size:24px;
+     width:130%;
      padding-right:0;
-     margin-right:0;
+     margin-right:;
+     color:hsl(219, 9%, 45%);
      }
      } 
 @media(max-width:768px){
@@ -331,8 +349,9 @@ h2{
       }
 span{
     padding-left: 12px;
-    border:1px solid red;
+    color:hsl(26, 100%, 55%);
     padding-right: 12px;
+    font-size:16px;
 }
 @media(max-width:768px){
    span{
@@ -343,6 +362,7 @@ span{
 #normal-price{
     transform: translateY(-10px);
     font-size:14px;
+    color:hsl(219, 9%, 45%);
 }
 @media(max-width:768px){
   #normal-price{
@@ -353,7 +373,6 @@ span{
       }
 .cart-section{
     display:flex;
-    align-items: center;
     gap:30px;
     margin-top:-6px;
 }
@@ -388,6 +407,7 @@ span{
     }
 #cart-icon{
     width:16px;
+    color:#fff;
 }
 @media(max-width:768px){
  #cart-icon{
@@ -396,19 +416,25 @@ span{
    }
 button{
     border-radius: 6px;
+    border-color:hsl(26, 100%, 55%);
     padding-left:36px;
     padding-right:36px;
     padding-top: 6px;
     padding-bottom: 6px;
+    margin-top:-6px;
+    color:#fff;
+    background:hsl(26, 100%, 55%);
+    cursor:pointer;
 }
+button:hover{
+    opacity:0.7;
+    }
 @media(max-width:768px){
  button{
    padding-top:14px;
    padding-bottom:14px;
-   width:480px;
-   margin-right:auto;
-   margin-left:110px;
    background:orange;
+   width:510px;
    color:#fff;
    font-size:24px;
    }
@@ -418,6 +444,19 @@ button{
         font-size:22px;
         }
     }
+    #icon-minus{
+      cursor:pointer;
+      }
+     #icon-minus:hover{
+       opacity:0.7;
+       }
+
+      #icon-plus{
+        cursor:pointer;
+        }
+        #icon-plus:hover{
+         opacity:0.7;
+         }
 @media(max-width:768px){
    #icon-minus{
       width:20px;

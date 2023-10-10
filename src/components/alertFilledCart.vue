@@ -5,7 +5,7 @@
     <img src="@/assets/images/image-product-1-thumbnail.jpg" alt="" id="img" >
     <p>Fall Limited Edition Sneakers <br>
     <span> ${{priceProp}} x {{cartQuantityProp}} <strong> ${{ total() }}</strong> </span> </p>
-    <img src="@/assets/images/icon-delete.svg" alt="" id="delete-icon">
+    <img src="@/assets/images/icon-delete.svg" alt="" id="delete-icon" v-on:click="deleteCart">
     </div>
     <button>Checkout</button>
   </div>
@@ -14,7 +14,8 @@
 export default {
 props: {
   priceProp: Number,      
-  cartQuantityProp: Number,         
+  cartQuantityProp: Number,  
+  deleteCart:Function,       
 },
  data() {
    return{
