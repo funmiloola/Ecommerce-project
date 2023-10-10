@@ -139,20 +139,25 @@ export default {
 </script>
 
 <style scoped>
+@media(max-width:768px){
+    *{
+    margin:0;
+    }
+    }
  #main{
     width:1100px;
-    border:1px solid red;
+    border:1px solid grey;
     margin-left:auto;
     margin-right:auto;
     font-family:'Kumbh Sans';
 }
- @media(max-width:768px){
-   #main{
-     width:100vw;
-     margin:0;
-     border:none;
-     }
-     }
+@media(max-width:768px){
+    #main{
+      width:100vw;
+      border:none;
+      margin:0;
+      }
+      }
 nav{
     display:flex;
     justify-content: space-between;
@@ -339,7 +344,6 @@ h2{
      font-size:24px;
      width:130%;
      padding-right:0;
-     margin-right:;
      color:hsl(219, 9%, 45%);
      }
      } 
@@ -369,7 +373,7 @@ span{
 @media(max-width:768px){
   #normal-price{
       padding-left:28rem;
-      transform:translateY(-30px);
+      transform:translateY(-38px);
       font-size:18px;
       }
       }
