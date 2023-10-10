@@ -342,7 +342,6 @@ h2{
   p{
      padding-top:10px;
      font-size:24px;
-     width:130%;
      padding-right:0;
      color:hsl(219, 9%, 45%);
      }
