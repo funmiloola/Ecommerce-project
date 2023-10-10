@@ -173,7 +173,12 @@ nav{
       margin-bottom: 0;
     list-style-type: none;
     display:block;
+    cursor:pointer;
   }
+  .options:hover{
+    border-bottom:2px solid orange;
+    color:black;
+    }
   @media(max-width:768px){
     .options{
       display:none;
@@ -184,21 +189,17 @@ nav{
     justify-content:center;
     padding:10px 0;
 }
-.nav-section:first-child li:hover{
-   border-bottom:2px solid orange;
-   color:black;
-   }
 .nav-section li {
     margin-right: 16px;
     margin-bottom: 0;
     list-style-type: none;
-    cursor:pointer;
     color:hsl(219, 9%, 45%);
     
 }
 .profile-pic:hover{
    border-radius:50%;
    border:2px solid orange;
+   cursor:pointer;
    }
 #profile-pic{
     width:50px;
@@ -222,6 +223,7 @@ nav{
 #cart-icn{
     padding-right:20px;
     position:relative;
+    cursor:pointer;
 }
 @media(max-width:768px){
   #cart-icn{
