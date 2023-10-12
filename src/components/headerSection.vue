@@ -11,8 +11,10 @@
             <ul class="nav-section">
                 <filled-cart v-if="showFilledAlert" :priceProp = "price" :cartQuantityProp = "cartQuantity" :deleteCart = "deleteCart"></filled-cart>
                  <empty-cart v-if="showEmptyAlert"></empty-cart>
+                 <div class="notification-icon">
                 <li><img src="@/assets/images/icon-cart.svg" alt="cart-icon" id="cart-icn" v-on:click="cartdetails" >
                 <span class="badge" v-if="cartQuantity > 0">{{cartQuantity}}</span> </li>
+                </div>
                 <li><img src="@/assets/images/image-avatar.png" alt="profile-pic" id="profile-pic" class="profile-pic"></li>
             </ul>
     </nav>
@@ -139,6 +141,10 @@ export default {
 </script>
 
 <style scoped>
+*{
+  margin:0;
+  padding:0;
+  }
 @media(max-width:768px){
     *{
     margin:0;
@@ -153,7 +159,7 @@ export default {
 }
 @media(max-width:768px){
     #main{
-      width:100vw;
+      width:375px;
       border:none;
       margin:0;
       }
@@ -161,6 +167,7 @@ export default {
 nav{
     display:flex;
     justify-content: space-between;
+    padding-top:24px;
     margin-left:100px;
     margin-right:100px;
     border-bottom: 1px solid grey;
@@ -176,7 +183,7 @@ nav{
      }
 .options{
       margin-right:16px;
-      margin-bottom: 0;
+      margin-bottom:-9.5px;
     list-style-type: none;
     display:block;
     cursor:pointer;
@@ -225,9 +232,12 @@ ul li {
       width:225px;
       }
       }
+.notification-icon{
+     position:relative;
+     display:inline-block;
+     }
 #cart-icn{
     padding-right:20px;
-    position:relative;
     cursor:pointer;
 }
 @media(max-width:768px){
@@ -241,14 +251,14 @@ ul li {
   border-radius: 50%; 
   padding: 1px 1px; 
   position: absolute;
-  top:  24px;
-  right:323px;
+  top:-8px;
+  right:35px;
   font-size: 12px; 
 }
 @media(max-width:768px) {
      .badge{
-       right:-43px;
-       top:16px;
+       right:35px;
+       top:-8px;
        }
        }
 .orders{
@@ -331,6 +341,7 @@ h1{
        }
 h2{
     font-size:36px;
+    padding-top:16px;
 }
 @media(max-width:768px){
     h2{
@@ -340,15 +351,20 @@ h2{
       }
       p{
        color:hsl(219, 9%, 45%);
+       padding-top:12px;
        }
 @media(max-width:768px){
   p{
      padding-top:10px;
-     font-size:24px;
+     font-size:22px;
      padding-right:0;
+     width:510px;
      color:hsl(219, 9%, 45%);
      }
      } 
+     h3{
+        padding-top:12px;
+        }
 @media(max-width:768px){
     h3{
       padding-top:24px;
@@ -368,7 +384,6 @@ span{
     }
     }
 #normal-price{
-    transform: translateY(-10px);
     font-size:14px;
     color:hsl(219, 9%, 45%);
 }
@@ -382,7 +397,7 @@ span{
 .cart-section{
     display:flex;
     gap:30px;
-    margin-top:-6px;
+    margin-top:10px;
 }
 @media(max-width:768px){
    .cart-section{
@@ -424,7 +439,7 @@ span{
    }
 button{
     border-radius: 6px;
-    border-color:hsl(26, 100%, 55%);
+    border:none;
     padding-left:36px;
     padding-right:36px;
     padding-top: 6px;
