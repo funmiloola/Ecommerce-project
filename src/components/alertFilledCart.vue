@@ -40,9 +40,9 @@ props: {
  }
  @media(max-width:768px){
     .dropdown{
-      right:-9.51rem;
+      right:-33.9rem;
       background:white;
-      top:4.5rem;
+      top:6.4rem;
       }
     }
  h1{

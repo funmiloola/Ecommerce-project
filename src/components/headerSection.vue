@@ -159,7 +159,7 @@ export default {
 }
 @media(max-width:768px){
     #main{
-      width:375px;
+      width:775px;
       border:none;
       margin:0;
       }
@@ -175,8 +175,8 @@ nav{
  @media(max-width:768px){
   nav{
      border-bottom:none;
-     margin-left:36px;
-     margin-right:-120px;
+     margin-left:100px;
+     margin-right:-92px;
      margin-top:8px;
       
      }
@@ -286,7 +286,7 @@ ul li {
 }
 @media(max-width:768px){
    #img-product{
-       width:550px;
+       width:125%;
        margin-left:-1rem;
        padding-bottom:0;
        }
@@ -345,8 +345,9 @@ h2{
 }
 @media(max-width:768px){
     h2{
-      padding-top:10px;
-      font-size:42px;
+      padding-top:20px;
+      font-size:48px;
+      padding-right:8rem;
       }
       }
       p{
@@ -355,10 +356,9 @@ h2{
        }
 @media(max-width:768px){
   p{
-     padding-top:10px;
-     font-size:22px;
+     padding-top:20px;
+     font-size:28px;
      padding-right:0;
-     width:510px;
      color:hsl(219, 9%, 45%);
      }
      } 
@@ -368,7 +368,7 @@ h2{
 @media(max-width:768px){
     h3{
       padding-top:24px;
-      font-size:24px;
+      font-size:36px;
       }
       }
 span{
@@ -379,7 +379,7 @@ span{
 }
 @media(max-width:768px){
    span{
-    font-size:20px;
+    font-size:28px;
     margin-left:24px;
     }
     }
@@ -389,9 +389,9 @@ span{
 }
 @media(max-width:768px){
   #normal-price{
-      padding-left:25rem;
-      transform:translateY(-38px);
-      font-size:20px;
+      padding-left:46rem;
+      transform:translateY(-60px);
+      font-size:28px;
       }
       }
 .cart-section{
@@ -420,12 +420,13 @@ span{
 }
 @media(max-width:768px){
   .add-cart{
-    gap:215px;
+    gap:400px;
     padding-left:10px;
     padding-right:10px;
     margin-right:auto;
     padding-top:12px;
     padding-bottom:12px;
+    margin-left:18px;
     }
     }
 #cart-icon{
@@ -454,10 +455,11 @@ button:hover{
     }
 @media(max-width:768px){
  button{
+   margin-left:20px;
    padding-top:14px;
    padding-bottom:14px;
    background:orange;
-   width:510px;
+   width:875px;
    color:#fff;
    font-size:24px;
    }
