@@ -14,8 +14,8 @@
 .dropdown{
      border:1px solid red;
      position:absolute;
-     top:4.5rem;
-     width:250px;
+     top:5rem;
+     width:240px;
      border:1px solid white;
      box-shadow:0px 0px 10px grey;
      border-radius:2px;

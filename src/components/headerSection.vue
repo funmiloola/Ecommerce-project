@@ -341,7 +341,7 @@ h1{
        }
 h2{
     font-size:36px;
-    padding-top:16px;
+    padding-top:28px;
 }
 @media(max-width:768px){
     h2{

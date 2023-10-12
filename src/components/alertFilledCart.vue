@@ -35,7 +35,7 @@ props: {
    border-radius:2px;
    position:absolute;
    top:4.5rem;
-   right:13rem;
+   width:250px;
    z-index:5;
  }
  @media(max-width:768px){
