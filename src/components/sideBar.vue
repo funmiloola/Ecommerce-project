@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .sidebar-options{
    width:85%;
-   height:1175px;
+   height:1440px;
    margin:0;
    display:none;
    position:absolute;
