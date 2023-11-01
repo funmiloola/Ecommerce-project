@@ -21,7 +21,8 @@
    </header>
      <section class="orders">
     <div>
-        <img :src="imageProduct" alt="image-product1" id="img-product">
+        <light-box :images="images" ref="lightbox" v-if="lightboxOpen"/>
+        <img :src="imageProduct" alt="image-product1" id="img-product" @click="openLightbox(index)">
         <div class="image-products">
             <img src="@/assets/images/image-product-1-thumbnail.jpg" alt="" class="img-product" v-on:click="firstImage">
             <img src="@/assets/images/image-product-2-thumbnail.jpg" alt="" class="img-product" v-on:click="secondImage">
@@ -57,19 +58,21 @@ import sideBar from '@/components/sideBar.vue';
 import iconSection from '@/components/iconSection.vue';
 import alertFilledCart from '@/components/alertFilledCart.vue';
 import alertEmptyCart from '@/components/alertEmptyCart.vue';
+import LightBox from '@/components/LightBox.vue'
 export default {
   components: {
       'sidebar':sideBar,
       'icon-component':iconSection,
       'filled-cart':alertFilledCart,
       'empty-cart':alertEmptyCart,
+      LightBox
   },
   data(){
   return{
   
   imageProduct:require("@/assets/images/image-product-1.jpg"),
    options:[
-              {id:1, name:'Collections'},
+              {id:1,name:'Collections'},
               {id:2,name:'Men'},
               {id:3,name:'Women'},
               {id:4,name:'About'},
@@ -85,6 +88,8 @@ export default {
          showSidebar:false,
          showFilledAlert:false,
          showEmptyAlert:false,
+ images:["@/assets/images/image-product-1.jpg","@/assets/images/image-product-2.jpg","@/assets/images/image-product-3.jpg","@/assets/images/image-product-4.jpg"],
+     lightboxOpen:false
          }
          },
   methods:{
@@ -130,6 +135,10 @@ export default {
           this.showFilledAlert = false;
           this.showEmptyAlert =! this.showEmptyAlert;
           this.cartQuantity = 0;
+          },
+          openLightbox(index){
+            this.lightboxOpen = true;
+            this.$refs.lightbox.show(index);
           }
   },
   mounted(){
