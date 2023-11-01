@@ -22,7 +22,7 @@
      <section class="orders">
     <div>
         <light-box :images="images" ref="lightbox" v-if="lightboxOpen"/>
-        <img :src="imageProduct" alt="image-product1" id="img-product" @click="openLightbox(index)">
+        <img :src="imageProduct" alt="image-product1" id="img-product" @click="openLightbox()">
         <div class="image-products">
             <img src="@/assets/images/image-product-1-thumbnail.jpg" alt="" class="img-product" v-on:click="firstImage">
             <img src="@/assets/images/image-product-2-thumbnail.jpg" alt="" class="img-product" v-on:click="secondImage">
@@ -140,9 +140,9 @@ export default {
           this.showEmptyAlert =! this.showEmptyAlert;
           this.cartQuantity = 0;
           },
-          openLightbox(index){
+          openLightbox(){
             this.lightboxOpen = true;
-            this.$refs.lightbox.show(index);
+            this.$refs.lightbox.show();
           }
   },
   mounted(){

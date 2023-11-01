@@ -13,11 +13,7 @@ export default {
   },
   data(){
       return{
-        images:[require('@/assets/images/image-product-1.jpg'),
-      require('@/assets/images/image-product-2.jpg'), 
-      require('@/assets/images/image-product-3.jpg'),
-      require('@/assets/images/image-product-4.jpg')
-],
+        
         }
       },
       methods:{

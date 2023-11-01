@@ -10,10 +10,10 @@
     <img src="@/assets/images/icon-next.svg" alt="icon-next" id="icon-next" @click="next">
     </div>
     <div class="thumbnails-section">
-           <img src="@/assets/images/image-product-1-thumbnail.jpg" alt="" class="img-product">
-            <img src="@/assets/images/image-product-2-thumbnail.jpg" alt="" class="img-product">
-            <img src="@/assets/images/image-product-3-thumbnail.jpg" alt="" class="img-product">
-            <img src="@/assets/images/image-product-4-thumbnail.jpg" alt="" class="img-product">
+           <img src="@/assets/images/image-product-1-thumbnail.jpg" alt="" class="img-product" @click="selectImage(0)" :class="{'selected': isSelected(0)}">
+            <img src="@/assets/images/image-product-2-thumbnail.jpg" alt="" class="img-product" @click="selectImage(1)" :class="{'selected': isSelected(1)}">
+            <img src="@/assets/images/image-product-3-thumbnail.jpg" alt="" class="img-product" @click="selectImage(2)" :class="{'selected': isSelected(2)}">
+            <img src="@/assets/images/image-product-4-thumbnail.jpg" alt="" class="img-product" @click="selectImage(3)" :class="{'selected':isSelected(3) }">
     </div>
     </div>
   </div>
@@ -33,9 +33,8 @@ export default {
     }
   },
   methods:{
-    show(index){
+    show(){
         this.visible = true;
-        this.currentIndex = index;
     },
     hide(){
         this.visible = false;
@@ -56,11 +55,25 @@ export default {
         if(this.hasPrev()){
             this.currentIndex -= 1;
         }
+    },
+    selectImage(index){
+        this.visible = true;
+        this.currentIndex = index;
+    }
+  },
+  computed:{
+    isSelected(){
+        return (index) => this.currentIndex == index;
     }
   }
 }
 </script>
 <style scoped>
+@media(max-width:768px){
+.lightbox{
+    visibility: hidden;
+}
+}
  .lightbox {
   position: fixed;
   top: 0;
@@ -74,13 +87,15 @@ export default {
   z-index: 999;
 }
 #lightbox-images{
-    width:375px;
+    width:380px;
     position:relative;
+    margin-left:auto;
+    margin-right:auto;
 }
 #icn-previous{
     position:absolute;
-    top:13.5rem;
-    left:17rem;
+    top:17rem;
+    left:29rem;
     border-radius:50%;
     background: #fff;
     width:10px;
@@ -88,11 +103,12 @@ export default {
     padding-left:0.7rem;
     padding-right: 0.7rem;
     padding-bottom:0.5rem;
+    cursor: pointer;
 }
 #icon-next{
     position:absolute;
-    top:13.5rem;
-    right:39.7rem;
+    top:17rem;
+    right:30rem;
     border-radius:50%;
     background: #fff;
     width:10px;
@@ -100,19 +116,31 @@ export default {
     padding-left:0.7rem;
     padding-right: 0.7rem;
     padding-bottom:0.5rem;
+    cursor: pointer;
 }
-/* #close-icon{
+#close-icon{
    float:right;
-   padding-right:20.5rem;
+   padding-right:1rem;
    padding-bottom:1rem;
-} */
+   cursor:pointer;
+   color:white;
+}
+#close-icon:hover{
+    color:orange;
+}
 .thumbnails-section{
      display:flex;
      gap:10px;
-     padding-top:8px;
+     padding-top:12px;
 }
 .img-product{
     width:90px;
     border-radius:8px;
+}
+.img-product:hover{
+     opacity:0.7;
+}
+.selected{
+    border:2px solid orange;
 }
 </style>
