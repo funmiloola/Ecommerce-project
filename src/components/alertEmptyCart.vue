@@ -23,10 +23,10 @@
  }
 @media(max-width:768px){
    .dropdown{
-     top:6rem;
+     top:5.2rem;
      z-index:10;
      background:white;
-     right:-35.3rem;
+     right:0;
      }
     }
 h1{

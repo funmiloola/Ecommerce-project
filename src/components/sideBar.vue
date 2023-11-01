@@ -32,8 +32,8 @@ export default {
 </script>
 <style scoped>
 .sidebar-options{
-   width:85%;
-   height:1800px;
+   width:50%;
+   height:1000px;
    margin:0;
    display:none;
    position:absolute;

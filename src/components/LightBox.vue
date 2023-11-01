@@ -3,11 +3,11 @@
     <div class="lightbox-content" >
     <img src="@/assets/images/icon-close.svg" alt="close-icon" id="close-icon" @click="hide"/>
     <div class="lightbox-images">
-    <img :src="images[currentIndex]" alt="lightbox-images" id="lightbox-images"/>
+    <img :src="images[currentIndex]" alt="lightbox-image" id="lightbox-images">
+    </div>
     <div class="lightbox-control">
     <img src="@/assets/images/icon-previous.svg" alt="icon-previous" id="icn-previous" @click="prev">
     <img src="@/assets/images/icon-next.svg" alt="icon-next" id="icon-next" @click="next">
-    </div>
     </div>
     <div class="thumbnails-section">
            <img src="@/assets/images/image-product-1-thumbnail.jpg" alt="" class="img-product">
@@ -108,9 +108,11 @@ export default {
 } */
 .thumbnails-section{
      display:flex;
-     gap:5px;
+     gap:10px;
+     padding-top:8px;
 }
 .img-product{
-   
+    width:90px;
+    border-radius:8px;
 }
 </style>

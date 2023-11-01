@@ -88,7 +88,11 @@ export default {
          showSidebar:false,
          showFilledAlert:false,
          showEmptyAlert:false,
- images:["@/assets/images/image-product-1.jpg","@/assets/images/image-product-2.jpg","@/assets/images/image-product-3.jpg","@/assets/images/image-product-4.jpg"],
+ images:[require('@/assets/images/image-product-1.jpg'),
+      require('@/assets/images/image-product-2.jpg'), 
+      require('@/assets/images/image-product-3.jpg'),
+      require('@/assets/images/image-product-4.jpg')
+],
      lightboxOpen:false
          }
          },
@@ -168,7 +172,7 @@ export default {
 }
 @media(max-width:768px){
     #main{
-      width:775px;
+      width:100vw;
       border:none;
       margin:0;
       }
@@ -184,9 +188,11 @@ nav{
  @media(max-width:768px){
   nav{
      border-bottom:none;
-     margin-left:100px;
-     margin-right:-92px;
+     margin-left:0;
+     margin-right:0;
      margin-top:8px;
+     justify-content:none;
+
       
      }
      }
@@ -210,12 +216,22 @@ ul{
     justify-content:center;
     padding:10px 0;
 }
+@media(max-width:768px){
+    ul{
+        padding:3px 0;
+    }
+}
 ul li {
     margin-right: 16px;
     margin-bottom: 0;
     list-style-type: none;
     color:hsl(219, 9%, 45%);
     
+}
+@media (max-width:768px){
+    ul li{
+        margin-right:0;
+    }
 }
 .profile-pic:hover{
    border-radius:50%;
@@ -230,6 +246,7 @@ ul li {
   #profile-pic{
       width:35px;
       margin-top:-5px;
+      padding-right:1rem;
       }
       }
 #logo{
@@ -238,7 +255,9 @@ ul li {
 }
  @media(max-width:768px){
    #logo{
-      width:225px;
+      width:170px;
+      padding-left:15px;
+      padding-right:0;
       }
       }
 .notification-icon{
@@ -266,7 +285,7 @@ ul li {
 }
 @media(max-width:768px) {
      .badge{
-       right:35px;
+       right:20px;
        top:-8px;
        }
        }
@@ -295,9 +314,10 @@ ul li {
 }
 @media(max-width:768px){
    #img-product{
-       width:125%;
-       margin-left:-1rem;
+       width:100vw;
+       margin-left:-0.5rem;
        padding-bottom:0;
+       border-radius: 0;
        }
        }
 .img-product{
@@ -355,18 +375,19 @@ h2{
 @media(max-width:768px){
     h2{
       padding-top:20px;
-      font-size:48px;
-      padding-right:8rem;
+      font-size:36px;
+      padding-right:0;
       }
       }
       p{
        color:hsl(219, 9%, 45%);
        padding-top:12px;
+       line-height:1.5;
        }
 @media(max-width:768px){
   p{
      padding-top:20px;
-     font-size:28px;
+     font-size:16px;
      padding-right:0;
      color:hsl(219, 9%, 45%);
      }
@@ -377,7 +398,7 @@ h2{
 @media(max-width:768px){
     h3{
       padding-top:24px;
-      font-size:36px;
+      font-size:24px;
       }
       }
 span{
@@ -388,8 +409,8 @@ span{
 }
 @media(max-width:768px){
    span{
-    font-size:28px;
-    margin-left:24px;
+    font-size:20px;
+    padding-left:12px;
     }
     }
 #normal-price{
@@ -398,9 +419,9 @@ span{
 }
 @media(max-width:768px){
   #normal-price{
-      padding-left:46rem;
-      transform:translateY(-60px);
-      font-size:28px;
+      padding-left:16rem;
+      transform:translateY(-50px);
+      font-size:20px;
       }
       }
 .cart-section{
@@ -412,7 +433,8 @@ span{
    .cart-section{
       flex-direction:column;
       gap:30px;
-      justify-content:space-between;
+      align-items:center;
+      margin:0;
       }
       }
 .add-cart{
@@ -429,13 +451,10 @@ span{
 }
 @media(max-width:768px){
   .add-cart{
-    gap:400px;
-    padding-left:10px;
-    padding-right:10px;
-    margin-right:auto;
+    gap:140px;
     padding-top:12px;
+    margin-left:-1.4rem;
     padding-bottom:12px;
-    margin-left:18px;
     }
     }
 #cart-icon{
@@ -464,13 +483,14 @@ button:hover{
     }
 @media(max-width:768px){
  button{
-   margin-left:20px;
+   
+   width:350px;
    padding-top:14px;
    padding-bottom:14px;
    background:orange;
-   width:875px;
    color:#fff;
    font-size:24px;
+   margin-left:-1.4rem;
    }
 }
 @media(max-width:768px){
