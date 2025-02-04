@@ -40,19 +40,13 @@ export default {
         this.visible = false;
         this.currentIndex = 0;
     },
-    hasNext(){
-        return this.currentIndex + 1 < this.images.length;
-    },
-    hasPrev(){
-        return this.currentIndex - 1 >= 0; 
-    },
     next(){
-        if(this.hasNext()){
+        if(this.currentIndex + 1 < this.images.length){
             this.currentIndex += 1;
         }
     },
     prev(){
-        if(this.hasPrev()){
+        if(this.currentIndex - 1 >= 0){
             this.currentIndex -= 1;
         }
     },

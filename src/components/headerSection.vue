@@ -4,7 +4,8 @@
     <nav>
             <ul class="nav-section">
                 <sidebar :showSidebar = "showSidebar" :closeSidebar = "closeSidebar"></sidebar>
-                <icon-component :showIcon="showIcon" :displaySidebar="displaySidebar"></icon-component>
+                <!-- <icon-component :showIcon="showIcon" :displaySidebar="displaySidebar"></icon-component> -->
+                  <img src="@/assets/images/icon-menu.svg" alt=""  v-on:click="displaySidebar" class="hamburger-icon">
                 <li><img src="@/assets/images/logo.svg" alt="logo" id="logo"></li>
                 <li class="options" v-for="option in options" v-bind:key="option.id">{{option.name}}</li>
             </ul>
@@ -55,17 +56,15 @@
 
 <script>
 import sideBar from '@/components/sideBar.vue';
-import iconSection from '@/components/iconSection.vue';
 import alertFilledCart from '@/components/alertFilledCart.vue';
 import alertEmptyCart from '@/components/alertEmptyCart.vue';
-import LightBox from '@/components/LightBox.vue'
+import LightBox from '@/components/LightBox.vue';
 export default {
   components: {
       'sidebar':sideBar,
-      'icon-component':iconSection,
       'filled-cart':alertFilledCart,
       'empty-cart':alertEmptyCart,
-      LightBox
+      LightBox,
   },
   data(){
   return{
@@ -145,11 +144,7 @@ export default {
             this.$refs.lightbox.show();
           }
   },
-  mounted(){
-   if(window.innerWidth <= 768){
-    this.showIcon = true;
-    }
-    }
+  
 }
 </script>
 
@@ -158,11 +153,6 @@ export default {
   margin:0;
   padding:0;
   }
-@media(max-width:768px){
-    *{
-    margin:0;
-    }
-    }
  #main{
     width:1100px;
     border:1px solid grey;
@@ -172,7 +162,7 @@ export default {
 }
 @media(max-width:768px){
     #main{
-      width:100vw;
+      width:100%;
       border:none;
       margin:0;
       }
@@ -181,24 +171,24 @@ nav{
     display:flex;
     justify-content: space-between;
     padding-top:24px;
-    margin-left:100px;
-    margin-right:100px;
+    padding-left:100px;
+    padding-right:100px;
     border-bottom: 1px solid grey;
 }
  @media(max-width:768px){
   nav{
      border-bottom:none;
-     margin-left:0;
-     margin-right:0;
-     margin-top:8px;
+     padding-left:0;
+     padding-right:0;
+     padding-top:8px;
      justify-content:none;
 
       
      }
      }
 .options{
-      margin-right:16px;
-      margin-bottom:-9.5px;
+      padding-right:16px;
+      padding-bottom:-9.5px;
     list-style-type: none;
     display:block;
     cursor:pointer;
@@ -222,15 +212,15 @@ ul{
     }
 }
 ul li {
-    margin-right: 16px;
-    margin-bottom: 0;
+    padding-right: 16px;
+    padding-bottom: 0;
     list-style-type: none;
     color:hsl(219, 9%, 45%);
     
 }
 @media (max-width:768px){
     ul li{
-        margin-right:0;
+        padding-right:0;
     }
 }
 .profile-pic:hover{
@@ -314,10 +304,12 @@ ul li {
 }
 @media(max-width:768px){
    #img-product{
-       width:100vw;
-       margin-left:-0.5rem;
+       width:100%;
+       padding-left:0;
        padding-bottom:0;
        border-radius: 0;
+       padding-right:-2rem;
+       
        }
        }
 .img-product{
@@ -427,7 +419,7 @@ span{
 .cart-section{
     display:flex;
     gap:30px;
-    margin-top:10px;
+    padding-top:10px;
 }
 @media(max-width:768px){
    .cart-section{
@@ -453,8 +445,9 @@ span{
   .add-cart{
     gap:140px;
     padding-top:12px;
-    margin-left:-1.4rem;
+    padding-left:-1.4rem;
     padding-bottom:12px;
+    margin-right:12px;
     }
     }
 #cart-icon{
@@ -490,7 +483,8 @@ button:hover{
    background:orange;
    color:#fff;
    font-size:24px;
-   margin-left:-1.4rem;
+   padding-left:12px;
+   margin-right:12px;
    }
 }
 @media(max-width:768px){
@@ -521,4 +515,15 @@ button:hover{
      width:20px;
      }
     }
+    .hamburger-icon{
+        display:none;
+        width:24px;
+  padding-right:0;
+  padding-top:5px;
+    }
+@media(max-width:768px){
+    .hamburger-icon{
+        display: block;
+    }
+}
 </style>
